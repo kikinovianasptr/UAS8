@@ -5,11 +5,11 @@ interface PengaduanInterface { //
     public function insertData($data);//interfacenya polimorphism untuk mendefinisikan satu atau lebih metode 
 }
 
-class Pengadu implements PengaduanInterface {//ada konsep oop Claass (kelas induk)
+class Pengadu implements PengaduanInterface {//ada konsep oop Class (kelas induk)
     protected $conn;//encapsulasi karena hanya dapat diakses oleh kelas induk dan juga kelas turunan(terbungkus)
 
     public function __construct($conn)
-    {
+    {              
         $this->conn = $conn;
     }
 
@@ -22,7 +22,7 @@ class Pengadu implements PengaduanInterface {//ada konsep oop Claass (kelas indu
             nomor_identitas = '{$data['nomor_identitas']}',
             file_identitas = '{$data['file_identitas']}',
             domisili = '{$data['domisili']}',
-            nomor_telpon = '{$data['nomor_telpon']}',
+            nomor_telpon = '{$data['nomor_telpon']}', 
             nomor_fax = '{$data['nomor_fax']}',
             email = '{$data['email']}'";
 
@@ -30,7 +30,7 @@ class Pengadu implements PengaduanInterface {//ada konsep oop Claass (kelas indu
     }
 }
 
-class Kejadian extends Pengadu implements PengaduanInterface {
+class Kejadian extends Pengadu implements PengaduanInterface { //inheritance (merupakan turunan dari kelas pengadu)
     public function insertData($data) // polimorphism karena sama method dan beda perlakuan atau akan masuk ke class kejadian ini
     {
         $query = "INSERT INTO kejadian SET
@@ -44,6 +44,7 @@ class Kejadian extends Pengadu implements PengaduanInterface {
     }
 }
 
+
 class PengaduanHandler {
     public function createPengaduan(PengaduanInterface $pengaduanObj, $data)
     {
@@ -53,7 +54,7 @@ class PengaduanHandler {
 }
 
 if (isset($_POST['buat'])) {
-    $pengaduanHandler = new PengaduanHandler();//objek
+    $pengaduanHandler = new PengaduanHandler();//objek (turunan dari kelas oop yang trmasuk dalam inheritance)
 
     $pengaduData = array(
         'nama' => $_POST['nama'],
@@ -82,5 +83,10 @@ if (isset($_POST['buat'])) {
     // Membuat objek untuk Kejadian
     $kejadian = new Kejadian($conn);
     $pengaduanHandler->createPengaduan($kejadian, $kejadianData);
+
+    $fileHandler = new FileHandler('/path/to/storage');
+    $fileHandler->uploadFile($_FILES['uploaded_file']);
+
+
 }
 ?>

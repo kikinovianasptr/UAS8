@@ -99,5 +99,5 @@ class Auth
     }
 }
 //dalam codingan ini telah dibuat class auth
-//terdapat property private $conn yang dimana ia hanya dapat di akses di dalam kelas itu saja (akram E1E122114)
+//terdapat property private $conn yang dimana ia hanya dapat di akses di dalam kelas itu saja (akram E1E12211)
 ?>

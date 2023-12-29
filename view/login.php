@@ -28,7 +28,7 @@ if(isset($_SESSION['username'])){
 <body>
     <div class="container">
         <form action="" method="POST" class="login-email">
-            <p class="login-text" style="font-size: 2rem; font-weight: 800;">Login</p>
+            <p class="login-text" style="font-size: 2rem; font-weight: 800;">selamat ujian</p>
             <div class="input-group">
                 <input type="email" placeholder="Email" name="email" required>
             </div>
@@ -36,7 +36,7 @@ if(isset($_SESSION['username'])){
                 <input type="password" placeholder="Password" name="password" required>
             </div>
             <div class="input-group">
-                <button name="submit" class="btn">Login</button>
+                <button name="submit" class="btn">selamat ujian</button>
             </div>
             <p class="login-register-text">Anda belum punya akun? <a href="register.php">Register</a></p>
         </form>
