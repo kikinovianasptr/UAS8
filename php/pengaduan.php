@@ -31,7 +31,7 @@ class Pengadu implements PengaduanInterface {//ada konsep oop Claass (kelas indu
 }
 
 class Kejadian extends Pengadu implements PengaduanInterface {
-    public function insertData($data) // polimorphism karena sama method dan beda perlakuan atau akan masuk ke class kejadian
+    public function insertData($data) // polimorphism karena sama method dan beda perlakuan atau akan masuk ke class kejadian ini
     {
         $query = "INSERT INTO kejadian SET
             perihal = '{$data['perihal']}',
